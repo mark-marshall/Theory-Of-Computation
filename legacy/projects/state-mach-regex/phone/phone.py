@@ -17,9 +17,9 @@ while line != "exit":
     
     # Else, break number up into area code, prefix, and suffix
     phone = match[0]
-    minus_bracs = str(phone).replace('(', '').replace(')', '').replace("'", '').replace(' ', '')
-    ans = re.split(',', minus_bracs)
-
+    phone_constituents = re.sub(r"[\s(')]", '', str(phone))
+    ans = re.split(',', phone_constituents)
+    # Print the formated number output
     print(f"Area Code: {ans[0]}\nPrefix: {ans[1]}\nSuffix: {ans[2]}")
     
     # Done validating, read in a new line
