@@ -10,11 +10,13 @@ if __name__ == '__main__':
 # Filename is 2nd command line arg
 filename = sys.argv[1]
 
-# TODO Read HTML file
-
+# Read HTML file
+html_file = open(filename, 'r')
+html = html_file.read()
+html_file.close()
 
 # TODO Set up regex
-
+print(html)
 
 # TODO Find links using regex, save in list called 'matches'
 
