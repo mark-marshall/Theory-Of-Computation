@@ -8,15 +8,19 @@ phone_re = r"[-(\s]?([0-9]{3})[-)\s]?[-)\s]?([0-9]{3})[-\s(]?[-)\s]?([0-9]{4})"
 
 while line != "exit":
     # Find matches 
-    match = re.match(phone_re, line)
+    match = re.findall(phone_re, line)
     
     # If no match found, print that no number was found
     if not match:
         print("Invalid number")
-   
     
-    # TODO Else, break number up into area code, prefix, and suffix
     
+    # Else, break number up into area code, prefix, and suffix
+    phone = match[0]
+    minus_bracs = str(phone).replace('(', '').replace(')', '').replace("'", '').replace(' ', '')
+    ans = re.split(',', minus_bracs)
+
+    print(f"Area Code: {ans[0]}\nPrefix: {ans[1]}\nSuffix: {ans[2]}")
     
     # Done validating, read in a new line
     line = input("Enter a phone number to validate or 'exit' when done. ")
