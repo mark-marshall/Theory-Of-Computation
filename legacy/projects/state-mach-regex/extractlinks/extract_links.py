@@ -16,7 +16,7 @@ html = html_file.read()
 html_file.close()
 
 # Set up regex
-links_re = r"\b(https?:\/\/[A-z0-9.-]+[.][#@&%sA;-z0-9./?=~-]+)"
+links_re = r"\b(https?:\/\/[A-z0-9.-]+[.][#@&%s;A-z0-9./?=~-]+)"
 
 # Find links using regex, save in list called 'matches'
 matches = re.findall(links_re, html)
